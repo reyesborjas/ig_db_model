@@ -5,7 +5,7 @@ from sqlalchemy import Column, ForeignKey, Integer, String, Table, DateTime, Tex
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
 from sqlalchemy import create_engine
-# from eralchemy2 import render_er
+from eralchemy2 import render_er
 
 Base = declarative_base()
 
@@ -135,9 +135,9 @@ class DirectMessage(Base):
     def __repr__(self):
         return f'<DirectMessage {self.id}>'
 
-
+## Draw from SQLAlchemy base
 try:
-    result = # render_er()
+    result = render_er(Base, 'diagram.png')
     print("Success! Check the diagram.png file")
 except Exception as e:
     print("There was a problem generating the diagram")
